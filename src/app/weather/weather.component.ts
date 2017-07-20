@@ -26,7 +26,7 @@ export class WeatherComponent implements OnInit {
     setInterval(() => {
       this.usedRadarUrl = this.radarUrl+"?"+new Date().getTime();
       console.log(this.usedRadarUrl)
-    }, 360000);
+    }, 360000);//5 min
 
 
   }

@@ -75,6 +75,6 @@ function convertState(input, to) {
         }
       }
     }
-  }
+}
 
 exports.convertState = convertState;

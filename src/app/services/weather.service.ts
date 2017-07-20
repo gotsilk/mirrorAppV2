@@ -26,25 +26,10 @@ export class WeatherService {
       .map((res: Response) => res.json());
   };
 
-  // getRadar(){
-  //   return this.http.get(this.radarUrl).map((res:Response) => res)
-  // }
-
-
   getCurrentIpLocation(){
       return this.http.get('http://ip-api.com/json')
       .map((response:Response) => response.json())
   }
 
-  // async buildApiUrlCall(){
-  //   console.log("Start buildAPI:");
-  //   let ret:string;
-  //   this.getCurrentIpLocation().subscribe((response) => {
-  //     this.state = await fetch(convertState(response.region,'abbr'));
-  //     this.city = await fetch(response.city);
-  //     ret = "http://api.wunderground.com/api/" + this.apiKey + "/forecast/q/"+this.state+"/"+this.city+".json";
-  //
-  //   });
-  //   return this.getWeather(ret)
-  // }
+
 }
