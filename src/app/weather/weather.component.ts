@@ -39,5 +39,12 @@ export class WeatherComponent implements OnInit {
       this.city = response.city;
       });
 
+
+    setInterval(()=>{
+      this.weatherService.getWeather().subscribe((response) => {
+        console.log(response);
+        this.weatherData = response;
+      })
+    },36000000);//1 hr
   }
 }
