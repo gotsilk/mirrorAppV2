@@ -1,9 +1,6 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../services/weather.service";
-import {Forecastday2, Simpleforecast} from "./Weather.model";
 import {convertState} from "./ConvertState.js";
-
-
 
 @Component({
   selector: 'app-weather',
@@ -14,14 +11,23 @@ import {convertState} from "./ConvertState.js";
 export class WeatherComponent implements OnInit {
 
   weatherData = {};
-  @Output() state:string;
-  @Output() city:string;
+  state:string;
+  city:string;
+
+  radarUrl:string = "http://api.wunderground.com/api/55100128fabdb2df/animatedradar/q/autoip.gif?newmaps=1";
+  usedRadarUrl:string = this.radarUrl;
 
   constructor(private weatherService : WeatherService) {
     this.weatherService.getWeather().subscribe((response) => {
       // console.log(response);
       this.weatherData = response;
     });
+
+    setInterval(() => {
+      this.usedRadarUrl = this.radarUrl+"?"+new Date().getTime();
+      console.log(this.usedRadarUrl)
+    }, 360000);
+
 
   }
 
@@ -33,16 +39,5 @@ export class WeatherComponent implements OnInit {
       this.city = response.city;
       });
 
-
-    // setInterval(() => {
-    //   this.weatherService.getWeather().subscribe((response) => {
-    //     this.weatherData = response;
-    //     console.log(this.weatherData);
-    //
-    //   });
-    // }, 100000); // 4 times a day
   }
-
-
-
 }

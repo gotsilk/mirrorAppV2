@@ -1,13 +1,11 @@
 
 <div class="container">
-  <div>
-  <div class="col-md h4" *ngFor="let forecastday of weatherData?.forecast?.simpleforecast?.forecastday; let i=index">
+  <div class="col-md-7 h4" *ngFor="let forecastday of weatherData?.forecast?.simpleforecast?.forecastday; let i=index">
     <div>
       <div *ngIf="i === 0">
           <div>
             <p class="h2">Today's Forecast includes: {{state}},{{city}}</p>
             <div class="h3">
-              <!--<span>{{forecastday?.date?.weekday}},</span>-->
               <span>High: {{forecastday?.high.fahrenheit}}</span>
               <span>Low: {{forecastday?.low.fahrenheit}}</span>
               <span>Avg Humidity: {{forecastday.avehumidity}}%</span>
@@ -21,6 +19,10 @@
             </div>
           </div>
         </div>
+      <div *ngIf="i ===0 && forecastday.conditions !== 'Clear'" class="col-md-5">
+        <h1>Current Radar</h1>
+        <img id="radarImg" src="{{usedRadarUrl}}">
+      </div>
     <div *ngIf="i !== 0">
 
       <div *ngIf="i ===1">
@@ -44,5 +46,5 @@
     </div>
     <br>
   </div>
-  </div>
 </div>
+

@@ -13,16 +13,22 @@ export class WeatherService {
   protected apiKey: string = "55100128fabdb2df";
   private city ={};
   private state = {};
-  private urlCall : string = "http://api.wunderground.com/api/" + this.apiKey + "/forecast/q/MA/Boston.json";
+  private urlCall : string = "http://api.wunderground.com/api/" + this.apiKey + "/forecast/q/autoip.json";
+
+  private radarUrl:string = "http://http://api.wunderground.com/api/55100128fabdb2df/animatedradar/q/autoip.gif?newmaps=1";
 
 
-  constructor(private http: Http, private i:string) {
+  constructor(private http: Http) {
   }
 
   getWeather() {
     return this.http.get(this.urlCall)
       .map((res: Response) => res.json());
   };
+
+  // getRadar(){
+  //   return this.http.get(this.radarUrl).map((res:Response) => res)
+  // }
 
 
   getCurrentIpLocation(){
