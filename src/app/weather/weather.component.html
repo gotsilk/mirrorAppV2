@@ -5,9 +5,9 @@
     <div>
       <div *ngIf="i === 0">
           <div>
-            <p class="h2">Today's Forecast includes:</p>
+            <p class="h2">Today's Forecast includes: {{state}},{{city}}</p>
             <div class="h3">
-              <!--<span>{{forecastday?.date?.weekday}}</span>-->
+              <!--<span>{{forecastday?.date?.weekday}},</span>-->
               <span>High: {{forecastday?.high.fahrenheit}}</span>
               <span>Low: {{forecastday?.low.fahrenheit}}</span>
               <span>Avg Humidity: {{forecastday.avehumidity}}%</span>
@@ -23,6 +23,10 @@
         </div>
     <div *ngIf="i !== 0">
 
+      <div *ngIf="i ===1">
+        <p>Daily Forecast:</p>
+        <hr>
+      </div>
         <div>
           <span>{{forecastday?.date?.weekday}}</span>
           <span>High: {{forecastday?.high.fahrenheit}}</span>

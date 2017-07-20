@@ -16,7 +16,7 @@ export class WeatherService {
   private urlCall : string = "http://api.wunderground.com/api/" + this.apiKey + "/forecast/q/MA/Boston.json";
 
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private i:string) {
   }
 
   getWeather() {
@@ -25,10 +25,10 @@ export class WeatherService {
   };
 
 
-  // getCurrentIpLocation(){
-  //     return this.http.get('http://ipinfo.io')
-  //     .map((response:Response) => response.json())
-  // }
+  getCurrentIpLocation(){
+      return this.http.get('http://ip-api.com/json')
+      .map((response:Response) => response.json())
+  }
 
   // async buildApiUrlCall(){
   //   console.log("Start buildAPI:");
