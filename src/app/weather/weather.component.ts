@@ -15,6 +15,7 @@ export class WeatherComponent implements OnInit {
 
   constructor(private weatherService : WeatherService) {
     this.weatherService.getWeather().subscribe((response) => {
+      console.log(response);
       this.weatherData = response;
     });
 
