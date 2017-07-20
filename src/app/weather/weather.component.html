@@ -4,7 +4,7 @@
     <div>
       <div *ngIf="i === 0">
           <div>
-            <p class="h2">Today's Forecast includes: {{state}},{{city}}</p>
+            <p class="h2">Today's Forecast includes: {{city}}, {{state}}</p>
             <div class="h3">
               <span>High: {{forecastday?.high.fahrenheit}}</span>
               <span>Low: {{forecastday?.low.fahrenheit}}</span>
@@ -14,7 +14,9 @@
               </div>
               <div>
                 Expected Conditions: {{forecastday.conditions}}
-                <span><img src="{{forecastday.icon_url}}"></span>
+                <span>
+                  <img src="../../../weatherIcons/partly-cloudy-day-512.png">
+                </span>
               </div>
             </div>
           </div>

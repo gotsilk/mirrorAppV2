@@ -1,8 +1,19 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<app-clock></app-clock>
-<br>
-<app-weather class="pull-left"></app-weather>
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm-4 pull-left">
+    <app-clock></app-clock>
+  </div>
+    <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <app-weather></app-weather>
+  </div>
+  </div>
 <br>
 <app-quote></app-quote>
+</div>
+<!--<img src="./../../weatherIcons/cloud-128.png">-->

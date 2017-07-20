@@ -17,7 +17,6 @@ export class QuoteComponent implements OnInit {
     setInterval(() => {
       this.getQuote()
     }, 8640000000); // 1 a day
-
   }
 
 
