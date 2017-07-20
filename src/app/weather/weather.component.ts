@@ -25,7 +25,7 @@ export class WeatherComponent implements OnInit {
 
     setInterval(() => {
       this.onScreenRadarUrl = this.radarUrl+"?"+new Date().getTime();
-      console.log(this.onScreenRadarUrl)
+      // console.log(this.onScreenRadarUrl)
     }, 360000);//5 min
 
 
@@ -33,16 +33,16 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.weatherService.getCurrentIpLocation().subscribe((response) =>{
-      console.log(response);
-      this.state = convertState(response.regionName,'abbr');
-      console.log(this.state);
+      // console.log(response);
+      this.state = convertState(response.regionName);
+      // console.log(this.state);
       this.city = response.city;
       });
 
 
     setInterval(()=>{
       this.weatherService.getWeather().subscribe((response) => {
-        console.log(response);
+        // console.log(response);
         this.weatherData = response;
       })
     },36000000);//1 hr
