@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {WeatherService} from "../services/weather.service";
 import {Forecastday2, Simpleforecast} from "./Weather.model";
+import {convertState} from "./ConvertState.js";
+
 
 
 @Component({
@@ -12,16 +14,24 @@ import {Forecastday2, Simpleforecast} from "./Weather.model";
 export class WeatherComponent implements OnInit {
 
   weatherData = {};
+  @Output() state:string;
+  @Output() city:string;
 
   constructor(private weatherService : WeatherService) {
     this.weatherService.getWeather().subscribe((response) => {
-      console.log(response);
+      // console.log(response);
       this.weatherData = response;
     });
 
   }
 
   ngOnInit() {
+    this.weatherService.getCurrentIpLocation().subscribe((response) =>{
+      console.log(response);
+      this.state = convertState(response.regionName,'abbr');
+      console.log(this.state);
+      this.city = response.city;
+      });
 
 
     // setInterval(() => {
