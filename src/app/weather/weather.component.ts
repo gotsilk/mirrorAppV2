@@ -15,7 +15,7 @@ export class WeatherComponent implements OnInit {
   city:string;
 
   radarUrl:string = "http://api.wunderground.com/api/55100128fabdb2df/animatedradar/q/autoip.gif?newmaps=1";
-  usedRadarUrl:string = this.radarUrl;
+  onScreenRadarUrl:string = this.radarUrl;
 
   constructor(private weatherService : WeatherService) {
     this.weatherService.getWeather().subscribe((response) => {
@@ -24,8 +24,8 @@ export class WeatherComponent implements OnInit {
     });
 
     setInterval(() => {
-      this.usedRadarUrl = this.radarUrl+"?"+new Date().getTime();
-      console.log(this.usedRadarUrl)
+      this.onScreenRadarUrl = this.radarUrl+"?"+new Date().getTime();
+      console.log(this.onScreenRadarUrl)
     }, 360000);//5 min
 
 
