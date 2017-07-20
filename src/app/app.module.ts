@@ -8,13 +8,15 @@ import { WeatherComponent } from './weather/weather.component';
 import {WeatherService} from "./services/weather.service";
 import { ClockComponent } from './clock/clock.component';
 import { QuoteComponent } from './quote/quote.component';
+import { StocksComponent } from './stocks/stocks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     ClockComponent,
-    QuoteComponent
+    QuoteComponent,
+    StocksComponent
   ],
   imports: [
     BrowserModule,
